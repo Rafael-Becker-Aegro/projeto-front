@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Farm } from 'src/app/models/farm';
 
 @Component({
   selector: 'app-farms',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./farms.component.css']
 })
 export class FarmsComponent implements OnInit {
+  farms: Farm[] = [];
+  displayedColumns = ['name', 'area', 'productivity'];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }

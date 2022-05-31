@@ -1,6 +1,6 @@
 export interface Farm {
-  id: number;
   name: string;
+  id: string;
   area: number;
   productivity: number;
 }
