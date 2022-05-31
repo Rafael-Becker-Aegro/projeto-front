@@ -1,0 +1,53 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$aegro-primary-palette: (
+ 50: #e8eaf6,
+ 100: #c5cae9,
+ 200: #9fa8da,
+ 300: #4cd0dd,
+ 400: #24c6d5,
+ 500: #00bcd0,
+ 600: #00acbd,
+ 700: #0097a3,
+ 800: #00828b,
+ 900: #005f61,
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: white,
+ )
+);
+
+$aegro-accent-palette: (
+ 50: #e3f7e8,
+ 100: #bcebc7,
+ 200: #8edda3,
+ 300: #56d17d,
+ 400: #05c65f,
+ 500: #00bb40,
+ 600: #00ab36,
+ 700: #009929,
+ 800: #00881c,
+ 900: #006804,
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: white,
+ )
+);
+
+$my-primary: mat.define-palette($aegro-primary-palette, 700);
+$my-accent: mat.define-palette($aegro-accent-palette, 400, 200, 800);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+ )
+));
+
+@include mat.all-component-themes($my-theme);
