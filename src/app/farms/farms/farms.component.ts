@@ -1,4 +1,4 @@
-import { FarmsService } from './../services/farms.service';
+import { FarmsService } from '../services/farms.service';
 import { Component, OnInit } from '@angular/core';
 import { Farm } from 'src/app/models/farm';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class FarmsComponent implements OnInit {
 
   farms: Observable<Farm[]>;
-  displayedColumns = ['id', 'name', 'area', 'productivity'];
+  displayedColumns = ['id', 'name', 'area', 'productivity', 'actions'];
 
   constructor(private farmsService:FarmsService) {
     this.farms = this.farmsService.getAll();
