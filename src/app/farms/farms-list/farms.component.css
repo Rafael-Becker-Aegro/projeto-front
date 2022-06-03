@@ -1,8 +1,4 @@
-.generic-table {
-  margin: 2rem;
-}
-
-.generic-table .table-toolbar {
+.table-toolbar {
   position: relative;
 }
 
@@ -20,7 +16,7 @@ table {
   width: 100%;
 }
 
-.table-row{
+.table-row {
   border-width: 0;
 }
 
@@ -28,7 +24,7 @@ table {
   margin-left: 0.3rem;
 }
 
-.actions-row{
-  justify-content:flex-end;
+.actions-row {
+  justify-content: flex-end;
   margin-right: 5%;
 }
