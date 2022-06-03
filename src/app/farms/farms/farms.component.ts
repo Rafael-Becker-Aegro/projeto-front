@@ -14,7 +14,7 @@ import { FarmDialogComponent } from '../farm-dialog/farm-dialog.component';
 export class FarmsComponent implements OnInit {
 
   farms: Observable<Farm[]>;
-  displayedColumns = ['id', 'name', 'actions'];
+  displayedColumns = ['name', 'actions'];
 
   constructor(private farmsService:FarmsService, public dialog: MatDialog) {
     this.farms = this.farmsService.getAll();
@@ -24,25 +24,32 @@ export class FarmsComponent implements OnInit {
   }
 
 
-  cickCreate(): void {
+  clickCreate(): void {
     const dialogRef = this.dialog.open(FarmDialogComponent, {
       width: '250px',
       data: {name: '', id: ''},
     });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(result);
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
   }
 
-  clickUpdate(): void {
+  clickUpdate(farm: Farm): void {
     const dialogRef = this.dialog.open(FarmDialogComponent, {
       width: '250px',
-      data: {name: '', id: ''},
+      data: {name: farm.name, id: farm.id},
     });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(result);
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
+
+  clickDelete(farmId: string){
+  }
+
+  clickFarm(farmId: string){
+
   }
 }
