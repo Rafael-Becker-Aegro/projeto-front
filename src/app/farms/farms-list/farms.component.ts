@@ -14,7 +14,7 @@ import { FarmDialogComponent } from '../farm-dialog/farm-dialog.component';
 export class FarmsComponent implements OnInit {
 
   farms: Observable<Farm[]>;
-  displayedColumns = ['name', 'actions'];
+  displayedColumns = ['id', 'name', 'actions'];
 
   constructor(private farmsService:FarmsService, public dialog: MatDialog) {
     this.farms = this.farmsService.getAll();

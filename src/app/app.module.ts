@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { FarmDialogComponent } from './farms/farm-dialog/farm-dialog.component';
 import { FarmsComponent } from './farms/farms-list/farms.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
+import { PlotListComponent } from './plots/plot-list/plot-list.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
     ToolbarComponent,
     FarmsComponent,
     FarmDialogComponent,
+    PlotListComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,9 +5,9 @@
     <input matInput [(ngModel)]="data.name" />
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+<div mat-dialog-actions class="action-buttons">
+  <button mat-raised-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="data" color="accent">
     Create
   </button>
 </div>
