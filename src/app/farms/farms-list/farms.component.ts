@@ -1,9 +1,11 @@
-import { FarmsService } from '../services/farms.service';
-import { Component, OnInit } from '@angular/core';
-import { Farm } from 'src/app/models/farm';
-import { Observable } from 'rxjs';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTable } from '@angular/material/table';
+import { Observable } from 'rxjs';
+import { Farm } from 'src/app/models/farm';
+
 import { FarmDialogComponent } from '../farm-dialog/farm-dialog.component';
+import { FarmsService } from '../services/farms.service';
 
 @Component({
   selector: 'app-farms',
@@ -12,7 +14,8 @@ import { FarmDialogComponent } from '../farm-dialog/farm-dialog.component';
   providers: [FarmsService]
 })
 export class FarmsComponent implements OnInit {
-
+  @ViewChild(MatTable)
+  farmList!: MatTable<any>;
   farms: Observable<Farm[]>;
   displayedColumns = ['id', 'name', 'actions'];
 
@@ -30,8 +33,8 @@ export class FarmsComponent implements OnInit {
       data: {name: '', id: ''},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+    dialogRef.afterClosed().subscribe(farm => {
+      this.farmsService.create(farm).subscribe(result => console.log(result));
     });
   }
 
@@ -41,12 +44,14 @@ export class FarmsComponent implements OnInit {
       data: {name: farm.name, id: farm.id},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+    dialogRef.afterClosed().subscribe(farm => {
+      this.farmsService.update(farm).subscribe(result => console.log(result));
     });
   }
 
   clickDelete(farmId: string){
+    this.farmsService.delete(farmId).subscribe(result => console.log(result));
+    this.farmList.renderRows();
   }
 
   clickFarm(farmId: string){

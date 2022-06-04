@@ -18,4 +18,16 @@ export class FarmsService {
       tap(farms => console.log(farms))
     );
   }
+
+  create(farm: Farm){
+    return this.httpClient.post<Farm>(this.apiUrl, farm);
+  }
+
+  update(farm: Farm){
+    return this.httpClient.put<Farm>(`${this.apiUrl}/${farm.id}`, farm);
+  }
+
+  delete(farmId: string){
+    return this.httpClient.delete(`${this.apiUrl}/${farmId}`);
+  }
 }
