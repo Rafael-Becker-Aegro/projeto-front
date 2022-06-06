@@ -1,4 +1,10 @@
-<h1 mat-dialog-title>Create Farm</h1>
+<div *ngIf="data.id === ''; else editFarm">
+  <h1>Add Farm</h1>
+</div>
+<ng-template #editFarm>
+  <h1>Edit Farm</h1>
+</ng-template>
+
 <div mat-dialog-content>
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
@@ -8,6 +14,6 @@
 <div mat-dialog-actions class="action-buttons">
   <button mat-raised-button (click)="onCancel()">Cancel</button>
   <button mat-raised-button [mat-dialog-close]="data" color="accent">
-    Create
+    Save
   </button>
 </div>
