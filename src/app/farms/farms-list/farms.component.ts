@@ -10,63 +10,61 @@ import { FarmsService } from '../services/farms.service';
   selector: 'app-farms',
   templateUrl: './farms.component.html',
   styleUrls: ['./farms.component.css'],
-  providers: [FarmsService]
+  providers: [FarmsService],
 })
 export class FarmsComponent implements OnInit {
-
   farms$!: Observable<Farm[]>;
   displayedColumns = ['id', 'name', 'actions'];
 
-  constructor(private farmsService:FarmsService, public dialog: MatDialog) {
+  constructor(private farmsService: FarmsService, public dialog: MatDialog) {
     this.getAll();
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 
   clickCreate(): void {
     const dialogRef = this.dialog.open(FarmDialogComponent, {
       width: '250px',
-      data: {name: '', id: ''},
+      data: { name: '', id: '' },
     });
 
-    dialogRef.afterClosed().subscribe(farm => {
-      this.farmsService.create(farm).subscribe(() => {
-        this.getAll()
-      });
+    dialogRef.afterClosed().subscribe((farm) => {
+      if (farm != undefined) {
+        this.farmsService.create(farm).subscribe(() => {
+          this.getAll();
+        });
+      }
     });
   }
 
   clickUpdate(farm: Farm): void {
     const dialogRef = this.dialog.open(FarmDialogComponent, {
       width: '250px',
-      data: {name: farm.name, id: farm.id},
+      data: { name: farm.name, id: farm.id },
     });
 
-    dialogRef.afterClosed().subscribe(farm => {
-      this.farmsService.update(farm).subscribe(() => {
-        this.getAll()
-      });
-    });
-  }
-
-  clickDelete(farmId: string){
-    this.farmsService.delete(farmId + 'XXX').subscribe(() => {
-      this.getAll()
+    dialogRef.afterClosed().subscribe((farm) => {
+      if (farm != undefined) {
+        this.farmsService.update(farm).subscribe(() => {
+          this.getAll();
+        });
+      }
     });
   }
 
-  clickFarm(farmId: string){
-
+  clickDelete(farmId: string) {
+    this.farmsService.delete(farmId).subscribe(() => {
+      this.getAll();
+    });
   }
+
+  clickFarm(farmId: string) {}
 
   getAll() {
-    this.farms$ = this.farmsService.getAll()
-    .pipe(
-      catchError(error => {
-        return of([])
+    this.farms$ = this.farmsService.getAll().pipe(
+      catchError((error) => {
+        return of([]);
       })
-    )
+    );
   }
 }
