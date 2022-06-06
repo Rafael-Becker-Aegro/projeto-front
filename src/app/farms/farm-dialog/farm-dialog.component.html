@@ -12,8 +12,6 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions class="action-buttons">
-  <button mat-raised-button (click)="onCancel()">Cancel</button>
-  <button mat-raised-button [mat-dialog-close]="data" color="accent">
-    Save
-  </button>
+  <button class="cancel-button" mat-raised-button (click)="onCancel()" color="accent">Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="data" color="accent">Save</button>
 </div>

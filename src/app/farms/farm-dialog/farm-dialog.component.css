@@ -5,3 +5,12 @@ h1{
 .action-buttons{
   justify-content: flex-end;
 }
+
+.cancel-button{
+  background-color: white;
+}
+
+.action-buttons button:hover{
+  transform: scale(1.1);
+  transition: 0.2s;
+}
