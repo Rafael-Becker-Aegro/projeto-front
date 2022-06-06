@@ -28,3 +28,10 @@ table {
   justify-content: flex-end;
   margin-right: 5%;
 }
+
+.loading_spinner{
+  background: rgba(0, 0, 0, 0.18);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
