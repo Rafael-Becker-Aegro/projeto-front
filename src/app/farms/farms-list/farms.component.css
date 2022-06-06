@@ -12,6 +12,11 @@
   margin-right: 5%;
 }
 
+.toolbar-button:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
 table {
   width: 100%;
 }
@@ -20,13 +25,29 @@ table {
   border-width: 0;
 }
 
-.aligned-with-icon {
-  margin-left: 0.3rem;
+.icon-with-text{
+  vertical-align: middle;
+}
+
+.text-with-icon {
+  margin-left: 1rem;
+  vertical-align: middle;
 }
 
 .actions-row {
   justify-content: flex-end;
   margin-right: 5%;
+}
+
+
+tr.mat-row button:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+
+tr.mat-row:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
 }
 
 .loading_spinner{

@@ -16,10 +16,8 @@
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td class="table-row" mat-cell *matCellDef="let farm">
         <div>
-          <button mat-icon-button color="primary" aria-label="Enter farm">
-            <mat-icon>navigate_next</mat-icon>
-          </button>
-          <span class="aligned-with-icon">{{ farm.name }}</span>
+          <mat-icon class="icon-with-text" color="primary" aria-label="Home icon">home</mat-icon>
+          <span class="text-with-icon">{{ farm.name }}</span>
         </div>
       </td>
     </ng-container>
