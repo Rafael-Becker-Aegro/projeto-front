@@ -61,10 +61,6 @@ export class FarmsComponent implements OnInit {
   clickFarm(farmId: string) {}
 
   getAll() {
-    this.farms$ = this.farmsService.getAll().pipe(
-      catchError((error) => {
-        return of([]);
-      })
-    );
+    this.farms$ = this.farmsService.getAll()
   }
 }
