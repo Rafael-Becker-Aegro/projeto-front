@@ -1,0 +1,68 @@
+<mat-toolbar class="table-toolbar" color="accent">
+  <span class="toolbar-text">Farms</span>
+  <button
+    class="toolbar-button"
+    mat-flat-button
+    (click)="clickCreate()"
+    color="primary"
+  >
+    Add Farm
+  </button>
+</mat-toolbar>
+<div *ngIf="farms$ | async as farms; else loading">
+  <table mat-table [dataSource]="farms">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let farm">{{ farm.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td class="table-row" mat-cell *matCellDef="let farm">
+        <div>
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="clickFarm(farm.id)"
+            aria-label="Enter farm"
+          >
+            <mat-icon>navigate_next</mat-icon>
+          </button>
+          <span class="aligned-with-icon">{{ farm.name }}</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell class="table-row, actions-row" *matCellDef="let farm">
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="clickUpdate(farm)"
+          aria-label="Update farm"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="clickDelete(farm.id)"
+          aria-label="Delete farm"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- SHOW HEADER
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<ng-template #loading>
+  <div class="loading_spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

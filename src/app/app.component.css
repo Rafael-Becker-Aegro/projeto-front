@@ -1,9 +1,18 @@
-.headerimg{
+.header-img{
   margin-left: 1%;
 }
 
-.headertext{
+.header-text{
   position: absolute;
   right: 0;
   margin-right: 4%;
+}
+
+.farm-list{
+  width: 47%;
+  margin-top: 3%;
+  margin-left: 3%;
+  border: 1px solid #004d4e;
+  border-radius: 5px;
+  overflow: hidden;
 }

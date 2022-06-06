@@ -1,0 +1,37 @@
+.table-toolbar {
+  position: relative;
+}
+
+.toolbar-text {
+  margin-left: 2%;
+}
+
+.toolbar-button {
+  position: absolute;
+  right: 0;
+  margin-right: 5%;
+}
+
+table {
+  width: 100%;
+}
+
+.table-row {
+  border-width: 0;
+}
+
+.aligned-with-icon {
+  margin-left: 0.3rem;
+}
+
+.actions-row {
+  justify-content: flex-end;
+  margin-right: 5%;
+}
+
+.loading_spinner{
+  background: rgba(0, 0, 0, 0.18);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}

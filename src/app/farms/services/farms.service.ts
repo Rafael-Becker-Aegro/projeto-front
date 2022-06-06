@@ -1,7 +1,8 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { of, throwError } from 'rxjs';
+import { catchError, first } from 'rxjs/operators';
 import { Farm } from 'src/app/models/farm';
-import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,28 @@ export class FarmsService {
   getAll(){
     return this.httpClient.get<Farm[]>(this.apiUrl)
     .pipe(
-      tap(farms => console.log(farms))
+      first(),
     );
-    // return [
-    //   {name: 'Farm1', id: '11', area: 111, productivity: 25},
-    //   {name: 'Farm2', id: '22', area: 222, productivity: 25},
-    //   {name: 'Farm3', id: '44', area: 332, productivity: 25},
-    //   {name: 'Farm4', id: '33', area: 134, productivity: 25},
-    //   {name: 'Farm5', id: '76', area: 112, productivity: 25},
-    // ];
+  }
+
+  create(farm: Farm){
+    return this.httpClient.post<Farm>(this.apiUrl, farm)
+    .pipe(
+      first(),
+    );
+  }
+
+  update(farm: Farm){
+    return this.httpClient.put<Farm>(`${this.apiUrl}/${farm.id}`, farm)
+    .pipe(
+      first(),
+    );
+  }
+
+  delete(farmId: string){
+    return this.httpClient.delete(`${this.apiUrl}/${farmId}`)
+    .pipe(
+      first(),
+    );
   }
 }
