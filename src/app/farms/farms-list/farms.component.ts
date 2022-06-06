@@ -32,8 +32,7 @@ export class FarmsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(farm => {
-      this.farmsService.create(farm).subscribe(result => {
-        console.log(result);
+      this.farmsService.create(farm).subscribe(() => {
         this.getAll()
       });
     });
@@ -46,16 +45,14 @@ export class FarmsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(farm => {
-      this.farmsService.update(farm).subscribe(result => {
-        console.log(result);
+      this.farmsService.update(farm).subscribe(() => {
         this.getAll()
       });
     });
   }
 
   clickDelete(farmId: string){
-    this.farmsService.delete(farmId).subscribe(result => {
-      console.log(result);
+    this.farmsService.delete(farmId + 'XXX').subscribe(() => {
       this.getAll()
     });
   }
@@ -70,6 +67,6 @@ export class FarmsComponent implements OnInit {
       catchError(error => {
         return of([])
       })
-    );
+    )
   }
 }
