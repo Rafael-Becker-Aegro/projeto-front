@@ -21,6 +21,8 @@ import { PlotListComponent } from './plots/plot-list/plot-list.component';
 import { HttpErrorInterceptor } from './shared/interceptor/http-error.interceptor';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { PlotDialogComponent } from './plots/plot-dialog/plot-dialog.component';
+import { ProductionDialogComponent } from './production/production-dialog/production-dialog.component';
+import { ProductionListComponent } from './production/production-list/production-list.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { PlotDialogComponent } from './plots/plot-dialog/plot-dialog.component';
     FarmDialogComponent,
     PlotListComponent,
     PlotDialogComponent,
+    ProductionDialogComponent,
+    ProductionListComponent,
   ],
   imports: [
     BrowserModule,
