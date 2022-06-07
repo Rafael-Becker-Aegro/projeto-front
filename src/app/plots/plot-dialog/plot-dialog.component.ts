@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Farm } from 'src/app/models/farm';
+import { Plot } from 'src/app/models/plot';
 
 @Component({
   selector: 'app-plot-dialog',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./plot-dialog.component.css']
 })
 export class PlotDialogComponent implements OnInit {
-
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<PlotDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Plot,
+  ) {}
 
   ngOnInit(): void {
   }
 
+  onCancel(): void {
+    this.dialogRef.close();
+  }
 }
+

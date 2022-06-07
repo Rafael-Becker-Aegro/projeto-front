@@ -1,1 +1,21 @@
-<p>plot-dialog works!</p>
+<div *ngIf="data.id === ''; else editPlot">
+  <h1>Add Plot</h1>
+</div>
+<ng-template #editPlot>
+  <h1>Edit Plot</h1>
+</ng-template>
+
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.name" required/>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Area</mat-label>
+    <input matInput [(ngModel)]="data.area" required/>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="action-buttons">
+  <button class="cancel-button" mat-raised-button (click)="onCancel()" color="accent">Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="data" color="accent">Save</button>
+</div>

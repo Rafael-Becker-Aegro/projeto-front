@@ -16,7 +16,7 @@ export class FarmsComponent implements OnInit {
   farms$!: Observable<Farm[]>;
   displayedColumns = ['name', 'actions'];
 
-  constructor(private farmsService: FarmsService, public dialog: MatDialog) {
+  constructor(private farmsService: FarmsService, private dialog: MatDialog) {
     this.getAll();
   }
 

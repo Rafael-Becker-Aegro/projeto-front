@@ -11,7 +11,7 @@
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td class="table-row" mat-cell *matCellDef="let farm">
         <div>
-          <mat-icon class="icon-with-text" color="primary" aria-label="Home icon">home</mat-icon>
+          <mat-icon class="icon-with-text" color="primary" aria-label="Farm icon">home</mat-icon>
           <span class="text-with-icon">{{ farm.name }}</span>
         </div>
       </td>
@@ -24,7 +24,7 @@
           <button mat-icon-button color="primary" (click)="clickUpdate(farm)" aria-label="Update farm">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="primary" (click)="clickDelete(farm.id)" aria-label="Delete farm">
+          <button mat-icon-button color="primary" (click)="clickDelete(farm.id)" [routerLink]="['/']" aria-label="Delete farm">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-icon-button color="primary" [routerLink]="['/plot-list', farm]" aria-label="See farm">

@@ -11,8 +11,9 @@
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td class="table-row" mat-cell *matCellDef="let plot">
         <div>
-          <mat-icon class="icon-with-text" color="primary" aria-label="Home icon">yard</mat-icon>
+          <mat-icon class="icon-with-text" color="primary" aria-label="Plot icon">yard</mat-icon>
           <span class="text-with-icon">{{ plot.name }}</span>
+          <span class="text-with-icon">{{ plot.area }}</span>
         </div>
       </td>
     </ng-container>
@@ -21,10 +22,10 @@
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell class="table-row, actions-column" *matCellDef="let plot">
         <div>
-          <button mat-icon-button color="primary" (click)="clickUpdate()" aria-label="Update plot">
+          <button mat-icon-button color="primary" (click)="clickUpdate(plot)" aria-label="Update plot">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="primary" (click)="clickDelete()" aria-label="Delete plot">
+          <button mat-icon-button color="primary" (click)="clickDelete(plot.id)" aria-label="Delete plot">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-icon-button color="primary" [routerLink]="['/']" aria-label="Delete plot">
