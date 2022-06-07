@@ -33,22 +33,21 @@ table {
   margin-left: 1rem;
 }
 
-.actions-row {
+.actions-column {
   justify-content: flex-end;
-  padding-left: 0;
+  padding: 0;
   margin-right: 5%;
 }
-
 
 tr.mat-row button:hover {
   background: rgba(0, 0, 0, 0.2);
   transition: 0.2s;
+  border-radius: 0;
 }
 
 tr.mat-row:hover {
   background: rgba(0, 0, 0, 0.1);
   transition: 0.2s;
-  cursor: pointer;
 }
 
 .loading_spinner{
