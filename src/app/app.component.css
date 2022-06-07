@@ -9,10 +9,25 @@
 }
 
 .farm-list{
-  width: 47%;
+  width: 35%;
   margin-top: 3%;
-  margin-left: 3%;
+  margin-left: 5%;
   border: 1px solid #004d4e;
   border-radius: 5px;
   overflow: hidden;
+}
+
+.other-list{
+  width: 60%;
+}
+
+@media (max-width: 1000px) {
+  .farm-list{
+    width: 95%;
+    margin: auto;
+    margin-top: 2%;
+    border: 1px solid #004d4e;
+    border-radius: 5px;
+    overflow: hidden;
+  }
 }

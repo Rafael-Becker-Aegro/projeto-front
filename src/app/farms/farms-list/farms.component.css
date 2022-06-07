@@ -31,11 +31,11 @@ table {
 
 .text-with-icon {
   margin-left: 1rem;
-  vertical-align: middle;
 }
 
 .actions-row {
   justify-content: flex-end;
+  padding-left: 0;
   margin-right: 5%;
 }
 
