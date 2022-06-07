@@ -19,14 +19,18 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     .pipe(
       catchError((error: HttpErrorResponse) => {
         if(error.error.message == null){
-          this._snackBar.open('Unexpected Error', 'Close');
+          this.openSnackBar('Unexpected Error');
         }
         else{
-          this._snackBar.open(error.error.message, 'Close');
+          this.openSnackBar(error.error.message);
         }
         return throwError(error.error);
       })
     );
+  }
+
+  openSnackBar(message: string){
+    this._snackBar.open(message, 'Close', {verticalPosition: 'top'});
   }
 }
 

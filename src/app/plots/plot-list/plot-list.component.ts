@@ -35,12 +35,6 @@ export class PlotListComponent implements OnInit {
       });
       this.getAll();
     });
-    // this.farm = {'name': this.route.snapshot.params['name'], 'id': this.route.snapshot.params['id'], productivity: 0};
-    // this.farmService.getProductivity(this.farm.id).subscribe(val => {
-    //   this.farm.productivity = val;
-    //   this.getAll();
-    // });
-    // this.getAll();
   }
 
   ngOnInit() {}
