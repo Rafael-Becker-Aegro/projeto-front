@@ -9,17 +9,23 @@
   margin-right: 4%;
 }
 
-.farm-list{
-  width: 35%;
+.lists-block{
+  text-align: center;
   margin-top: 3%;
-  margin-left: 5%;
+}
+
+.farm-list{
+  display: inline-block;
+  width: 35%;
   border: 1px solid #004d4e;
   border-radius: 5px;
   overflow: hidden;
 }
 
 .other-list{
-  width: 60%;
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
 }
 
 @media (max-width: 1000px) {

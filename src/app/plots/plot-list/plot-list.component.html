@@ -1,1 +1,47 @@
-<p>plot-list works!</p>
+<mat-toolbar class="table-toolbar" color="accent">
+  <span class="toolbar-text">Plots</span>
+  <button class="toolbar-button" mat-flat-button (click)="clickCreate()" color="primary" >
+    Add Plot
+  </button>
+</mat-toolbar>
+<div *ngIf="plots$ | async as plots; else loading">
+  <table mat-table [dataSource]="plots">
+
+    <ng-container matColumnDef="name" class="row-element">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td class="table-row" mat-cell *matCellDef="let plot">
+        <div>
+          <mat-icon class="icon-with-text" color="primary" aria-label="Home icon">yard</mat-icon>
+          <span class="text-with-icon">{{ plot.name }}</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell class="table-row, actions-column" *matCellDef="let plot">
+        <div>
+          <button mat-icon-button color="primary" (click)="clickUpdate()" aria-label="Update plot">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="clickDelete()" aria-label="Delete plot">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" [routerLink]="['/']" aria-label="Delete plot">
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <!-- SHOW HEADER
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<ng-template #loading>
+  <div class="loading_spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

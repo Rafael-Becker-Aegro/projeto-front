@@ -1,3 +1,4 @@
+import { first } from 'rxjs/operators';
 import { Plot } from './../../models/plot';
 import { FarmsService } from 'src/app/services/farms.service';
 import { Farm } from 'src/app/models/farm';
@@ -21,13 +22,26 @@ export class PlotListComponent implements OnInit {
   constructor(private plotsService: PlotsService, private farmService: FarmsService,private route: ActivatedRoute) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.farm = {'name': this.route.snapshot.params['name'], 'id': this.route.snapshot.params['id'], productivity: 0};
     this.farmService.getProductivity(this.farm.id).subscribe(val => {
       this.farm.productivity = val;
-      console.log(this.farm);
+      this.getAll();
     });
   }
+
+  clickCreate(): void {
+
+  }
+
+  clickUpdate(): void {
+
+  }
+
+  clickDelete() {
+
+  }
+
 
   getAll() {
     this.plots$ = this.plotsService.getAll(this.farm.id);

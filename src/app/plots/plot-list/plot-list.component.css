@@ -1,0 +1,59 @@
+.table-toolbar {
+  position: relative;
+}
+
+.toolbar-text {
+  margin-left: 2%;
+}
+
+.toolbar-button {
+  position: absolute;
+  right: 0;
+  margin-right: 5%;
+}
+
+.toolbar-button:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+table {
+  width: 100%;
+  text-align: start;
+}
+
+.table-row {
+  border-width: 0;
+}
+
+.icon-with-text{
+  vertical-align: middle;
+}
+
+.text-with-icon {
+  margin-left: 1rem;
+}
+
+.actions-column {
+  justify-content: flex-end;
+  padding: 0;
+  margin-right: 5%;
+}
+
+tr.mat-row button:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+  border-radius: 0;
+}
+
+tr.mat-row:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+
+.loading_spinner{
+  background: rgba(0, 0, 0, 0.18);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
