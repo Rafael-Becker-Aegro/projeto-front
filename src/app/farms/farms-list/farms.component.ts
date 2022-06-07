@@ -28,7 +28,7 @@ export class FarmsComponent implements OnInit {
       data: { name: '', id: '' },
     });
 
-    dialogRef.afterClosed().subscribe((farm) => {
+    dialogRef.afterClosed().subscribe((farm: Farm) => {
       if (farm != undefined) {
         this.farmsService.create(farm).subscribe(() => {
           this.getAll();
@@ -43,7 +43,7 @@ export class FarmsComponent implements OnInit {
       data: { name: farm.name, id: farm.id },
     });
 
-    dialogRef.afterClosed().subscribe((farm) => {
+    dialogRef.afterClosed().subscribe((farm: Farm) => {
       if (farm != undefined) {
         this.farmsService.update(farm).subscribe(() => {
           this.getAll();
