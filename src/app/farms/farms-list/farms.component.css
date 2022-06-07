@@ -48,6 +48,7 @@ tr.mat-row button:hover {
 tr.mat-row:hover {
   background: rgba(0, 0, 0, 0.1);
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .loading_spinner{

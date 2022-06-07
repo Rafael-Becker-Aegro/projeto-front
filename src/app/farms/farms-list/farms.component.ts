@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { catchError, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Farm } from 'src/app/models/farm';
+import { FarmsService } from 'src/app/services/farms.service';
 
 import { FarmDialogComponent } from '../farm-dialog/farm-dialog.component';
-import { FarmsService } from 'src/app/services/farms.service';
 
 @Component({
   selector: 'app-farms',

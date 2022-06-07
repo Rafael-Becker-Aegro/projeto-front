@@ -1,6 +1,6 @@
 <mat-toolbar class="table-toolbar" color="accent">
   <span class="toolbar-text">Farms</span>
-  <button class="toolbar-button" mat-flat-button (click)="clickCreate()" color="primary">
+  <button class="toolbar-button" mat-flat-button (click)="clickCreate()" color="primary" >
     Add Farm
   </button>
 </mat-toolbar>
@@ -31,7 +31,7 @@
 
     <!-- SHOW HEADER
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" [routerLink]="['/plot-list', row]"></tr>
   </table>
 </div>
 
