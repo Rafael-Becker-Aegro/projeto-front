@@ -11,37 +11,45 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-plot-list',
   templateUrl: './plot-list.component.html',
-  styleUrls: ['./plot-list.component.css']
+  styleUrls: ['./plot-list.component.css'],
 })
 export class PlotListComponent implements OnInit {
   farm!: Farm;
   plots$!: Observable<Plot[]>;
   displayedColumns = ['name', 'actions'];
 
-
-  constructor(private plotsService: PlotsService, private farmService: FarmsService,private route: ActivatedRoute) {
-  }
-
-  async ngOnInit(): Promise<void> {
-    this.farm = {'name': this.route.snapshot.params['name'], 'id': this.route.snapshot.params['id'], productivity: 0};
-    this.farmService.getProductivity(this.farm.id).subscribe(val => {
-      this.farm.productivity = val;
+  constructor(
+    private plotsService: PlotsService,
+    private farmService: FarmsService,
+    private route: ActivatedRoute
+  ) {
+    route.params.subscribe((paramFarm) => {
+      this.farm = {
+        name: paramFarm['name'],
+        id: paramFarm['id'],
+        productivity: 0,
+      };
+      this.farmService.getProductivity(this.farm.id).subscribe((val) => {
+        this.farm.productivity = val;
+        this.getAll();
+      });
       this.getAll();
     });
+    // this.farm = {'name': this.route.snapshot.params['name'], 'id': this.route.snapshot.params['id'], productivity: 0};
+    // this.farmService.getProductivity(this.farm.id).subscribe(val => {
+    //   this.farm.productivity = val;
+    //   this.getAll();
+    // });
+    // this.getAll();
   }
 
-  clickCreate(): void {
+  ngOnInit() {}
 
-  }
+  clickCreate(): void {}
 
-  clickUpdate(): void {
+  clickUpdate(): void {}
 
-  }
-
-  clickDelete() {
-
-  }
-
+  clickDelete() {}
 
   getAll() {
     this.plots$ = this.plotsService.getAll(this.farm.id);
