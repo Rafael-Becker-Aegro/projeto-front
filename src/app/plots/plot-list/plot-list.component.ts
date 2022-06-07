@@ -10,12 +10,14 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./plot-list.component.css']
 })
 export class PlotListComponent implements OnInit {
-  farm!: Farm;
+  farmId!: string;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
-    this.farm = this.route.snapshot.params['farm'];
+    this.farmId = this.route.snapshot.params['id'];
+    console.log(this.farmId);
   }
 
 }
