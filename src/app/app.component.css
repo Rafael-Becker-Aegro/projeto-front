@@ -23,7 +23,7 @@
   display: inline-block;
   width: 35%;
   border: 1px solid rgba(0, 77, 78, 0.15);
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .other-list{
@@ -32,7 +32,7 @@
   border: 1px solid rgba(0, 77, 78, 0.15);
   border-left: 0;
   vertical-align: top;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 @media (max-width: 1000px) {
@@ -41,7 +41,6 @@
     margin: auto;
     border: 1px solid rgba(0, 77, 78, 0.15);
     border-radius: 5px;
-    overflow: hidden;
   }
 
   .other-list{
@@ -50,6 +49,5 @@
     margin-top: 2%;
     border: 1px solid rgba(0, 77, 78, 0.15);
     border-radius: 5px;
-    overflow: hidden;
   }
 }
