@@ -11,23 +11,27 @@
 
 .lists-block{
   text-align: center;
+  height: 580px;
   margin-top: 3%;
+}
+
+.lists-block div{
+  height: 100%;
 }
 
 .farm-list{
   display: inline-block;
   width: 35%;
-  border: 1px solid #004d4e;
-  border-radius: 5px;
+  border: 1px solid rgba(0, 77, 78, 0.15);
   overflow: hidden;
 }
 
 .other-list{
   display: inline-block;
   width: 40%;
+  border: 1px solid rgba(0, 77, 78, 0.15);
+  border-left: 0;
   vertical-align: top;
-  border: 1px solid #004d4e;
-  border-radius: 5px;
   overflow: hidden;
 }
 
@@ -35,7 +39,7 @@
   .farm-list{
     width: 95%;
     margin: auto;
-    border: 1px solid #004d4e;
+    border: 1px solid rgba(0, 77, 78, 0.15);
     border-radius: 5px;
     overflow: hidden;
   }
@@ -44,7 +48,7 @@
     width: 95%;
     margin: auto;
     margin-top: 2%;
-    border: 1px solid #004d4e;
+    border: 1px solid rgba(0, 77, 78, 0.15);
     border-radius: 5px;
     overflow: hidden;
   }

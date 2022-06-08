@@ -1,6 +1,13 @@
-<mat-toolbar class="table-toolbar" color="accent">
-  <mat-icon class="icon-with-text" color="primary" aria-label="Plot icon">home</mat-icon>
-  <span class="toolbar-text">{{ farm.name }}  |  production: {{ farm.productivity }}kg/ha</span>
+<mat-toolbar class="table-title">
+  <div class="table-title-title">
+    <mat-icon class="icon-with-text" color="primary" aria-label="Plot icon">home</mat-icon>
+    <span class="toolbar-text">{{ farm.name }}</span>
+  </div>
+  <span class="toolbar-detail-text">production: {{ farm.productivity }}kg/ha</span>
+</mat-toolbar>
+
+<mat-toolbar class="table-toolbar">
+  <span class="toolbar-text">Farm Plots</span>
   <button class="toolbar-button" mat-flat-button (click)="clickCreate()" color="primary" >
     Add Plot
   </button>

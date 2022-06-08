@@ -1,9 +1,30 @@
 .table-toolbar {
   position: relative;
+  background-color: white;
+}
+
+.table-title {
+  height: 88px;
+  position: relative;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 77, 78, 0.15);
 }
 
 .toolbar-text {
   margin-left: 2%;
+}
+
+.table-title-title{
+  position: absolute;
+  top: 12px;
+}
+
+.toolbar-detail-text {
+  position: absolute;
+  top: 36px;
+  left: 2.5rem;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .toolbar-button {
@@ -51,7 +72,7 @@ tr.mat-row:hover {
   transition: 0.2s;
 }
 
-.loading_spinner{
+.empty-table{
   background: rgba(0, 0, 0, 0.18);
   padding: 2rem;
   display: flex;
