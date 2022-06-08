@@ -1,0 +1,7 @@
+<div mat-dialog-content>
+  <h1>Doing this will delete all Plots and Productions related to this Farm</h1>
+</div>
+<div mat-dialog-actions class="action-buttons">
+  <button class="cancel-button" mat-raised-button (click)="onCancel()" color="accent">Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="'delete'" color="accent">Delete</button>
+</div>
