@@ -1,7 +1,6 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of, throwError } from 'rxjs';
-import { catchError, first } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 import { Farm } from 'src/app/models/farm';
 
 @Injectable({
@@ -39,5 +38,12 @@ export class FarmsService {
     .pipe(
       first(),
     );
+  }
+
+  getProductivity(farmId: string){
+    return this.httpClient.get<number>(`${this.apiUrl}/${farmId}/get_productivity`)
+    .pipe(
+      first(),
+    )
   }
 }

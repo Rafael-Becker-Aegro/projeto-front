@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { catchError, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Farm } from 'src/app/models/farm';
+import { FarmsService } from 'src/app/services/farms.service';
 
 import { FarmDialogComponent } from '../farm-dialog/farm-dialog.component';
-import { FarmsService } from '../services/farms.service';
 
 @Component({
   selector: 'app-farms',
@@ -14,9 +14,9 @@ import { FarmsService } from '../services/farms.service';
 })
 export class FarmsComponent implements OnInit {
   farms$!: Observable<Farm[]>;
-  displayedColumns = ['id', 'name', 'actions'];
+  displayedColumns = ['name', 'actions'];
 
-  constructor(private farmsService: FarmsService, public dialog: MatDialog) {
+  constructor(private farmsService: FarmsService, private dialog: MatDialog) {
     this.getAll();
   }
 
@@ -28,7 +28,7 @@ export class FarmsComponent implements OnInit {
       data: { name: '', id: '' },
     });
 
-    dialogRef.afterClosed().subscribe((farm) => {
+    dialogRef.afterClosed().subscribe((farm: Farm) => {
       if (farm != undefined) {
         this.farmsService.create(farm).subscribe(() => {
           this.getAll();
@@ -43,7 +43,7 @@ export class FarmsComponent implements OnInit {
       data: { name: farm.name, id: farm.id },
     });
 
-    dialogRef.afterClosed().subscribe((farm) => {
+    dialogRef.afterClosed().subscribe((farm: Farm) => {
       if (farm != undefined) {
         this.farmsService.update(farm).subscribe(() => {
           this.getAll();
@@ -57,8 +57,6 @@ export class FarmsComponent implements OnInit {
       this.getAll();
     });
   }
-
-  clickFarm(farmId: string) {}
 
   getAll() {
     this.farms$ = this.farmsService.getAll()

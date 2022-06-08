@@ -8,8 +8,6 @@ import { Farm } from 'src/app/models/farm';
   styleUrls: ['./farm-dialog.component.css']
 })
 export class FarmDialogComponent implements OnInit {
-  farm!: Farm;
-
   constructor(
     public dialogRef: MatDialogRef<FarmDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Farm,

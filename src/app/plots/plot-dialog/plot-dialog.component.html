@@ -1,14 +1,18 @@
-<div *ngIf="data.id === ''; else editFarm">
-  <h1>Add Farm</h1>
+<div *ngIf="data.id === ''; else editPlot">
+  <h1>Add Plot</h1>
 </div>
-<ng-template #editFarm>
-  <h1>Edit Farm</h1>
+<ng-template #editPlot>
+  <h1>Edit Plot</h1>
 </ng-template>
 
 <div mat-dialog-content>
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
     <input matInput [(ngModel)]="data.name" required/>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Area</mat-label>
+    <input matInput [(ngModel)]="data.area" required/>
   </mat-form-field>
 </div>
 <div mat-dialog-actions class="action-buttons">

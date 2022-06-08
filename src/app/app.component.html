@@ -1,7 +1,12 @@
 <mat-toolbar color="primary">
-  <img  class="header-img" width="100" alt="Aegro Logo" src="assets/aegro-logo.svg" />
+  <img  class="header-img" width="100" alt="Aegro Logo" src="assets/aegro-logo.svg" [routerLink]="['/']"/>
   <span class="header-text">Academy Project</span>
 </mat-toolbar>
-<div class="farm-list">
-  <app-farms></app-farms>
+<div class="lists-block">
+  <div class="farm-list">
+    <app-farms></app-farms>
+  </div>
+  <div class="other-list">
+    <router-outlet></router-outlet>
+  </div>
 </div>

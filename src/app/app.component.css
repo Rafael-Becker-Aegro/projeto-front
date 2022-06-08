@@ -1,5 +1,6 @@
 .header-img{
   margin-left: 1%;
+  cursor: pointer;
 }
 
 .header-text{
@@ -8,11 +9,43 @@
   margin-right: 4%;
 }
 
-.farm-list{
-  width: 47%;
+.lists-block{
+  text-align: center;
   margin-top: 3%;
-  margin-left: 3%;
+}
+
+.farm-list{
+  display: inline-block;
+  width: 35%;
   border: 1px solid #004d4e;
   border-radius: 5px;
   overflow: hidden;
+}
+
+.other-list{
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
+  border: 1px solid #004d4e;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  .farm-list{
+    width: 95%;
+    margin: auto;
+    border: 1px solid #004d4e;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .other-list{
+    width: 95%;
+    margin: auto;
+    margin-top: 2%;
+    border: 1px solid #004d4e;
+    border-radius: 5px;
+    overflow: hidden;
+  }
 }

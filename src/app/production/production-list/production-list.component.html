@@ -1,0 +1,48 @@
+<mat-toolbar class="table-toolbar" color="accent">
+  <button mat-icon-button color="primary" (click)="backClicked()" aria-label="Delete plot">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <span class="toolbar-text">{{ plot.name }}  |  production: {{ plot.productivity }}kg/ha</span>
+  <button class="toolbar-button" mat-flat-button (click)="clickCreate()" color="primary" >
+    Add Production
+  </button>
+</mat-toolbar>
+<div *ngIf="productions$ | async as production; else loading">
+  <table mat-table [dataSource]="production">
+
+    <ng-container matColumnDef="name" class="row-element">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td class="table-row" mat-cell *matCellDef="let production">
+        <div>
+          <mat-icon class="icon-with-text" color="primary" aria-label="Plot icon">grass</mat-icon>
+          <span class="text-with-icon">{{ production.crop }}</span>
+          <span class="text-with-icon">{{ production.quantity }}</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell class="table-row, actions-column" *matCellDef="let production">
+        <div>
+          <button mat-icon-button color="primary" (click)="clickUpdate(production)" aria-label="Update production">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="clickDelete(production.id)" aria-label="Delete production">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <!-- SHOW HEADER
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<ng-template #loading>
+  <div class="loading_spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
