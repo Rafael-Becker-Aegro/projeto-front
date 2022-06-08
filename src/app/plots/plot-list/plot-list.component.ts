@@ -6,6 +6,7 @@ import { Farm } from 'src/app/models/farm';
 import { Plot } from 'src/app/models/plot';
 import { FarmsService } from 'src/app/services/farms.service';
 import { PlotsService } from 'src/app/services/plots.service';
+
 import { PlotDialogComponent } from '../plot-dialog/plot-dialog.component';
 
 @Component({
@@ -30,11 +31,12 @@ export class PlotListComponent implements OnInit {
         id: paramFarm['id'],
         productivity: 0,
       };
-      this.farmService.getProductivity(this.farm.id).subscribe((farmProductivity) => {
-        this.farm.productivity = farmProductivity;
-        this.getAll();
-      });
-      this.getAll();
+      this.farmService
+        .getProductivity(this.farm.id)
+        .subscribe((farmProductivity) => {
+          this.farm.productivity = farmProductivity;
+          this.getAll();
+        });
     });
   }
 
@@ -81,4 +83,4 @@ export class PlotListComponent implements OnInit {
   }
 }
 
-PlotDialogComponent
+PlotDialogComponent;

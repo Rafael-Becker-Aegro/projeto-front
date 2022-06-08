@@ -41,4 +41,11 @@ export class PlotsService {
       first(),
     );
   }
+
+  getProductivity(farmId: string, plotId: string){
+    return this.httpClient.get<number>(`${this.apiUrl}/${farmId}/plots/${plotId}/get_productivity`)
+    .pipe(
+      first(),
+    )
+  }
 }

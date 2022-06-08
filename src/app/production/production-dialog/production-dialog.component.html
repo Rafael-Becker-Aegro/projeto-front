@@ -1,1 +1,21 @@
-<p>production-dialog works!</p>
+<div *ngIf="data.id === ''; else editProduction">
+  <h1>Add Production</h1>
+</div>
+<ng-template #editProduction>
+  <h1>Edit Production</h1>
+</ng-template>
+
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Crop</mat-label>
+    <input matInput [(ngModel)]="data.crop" required/>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Quantity</mat-label>
+    <input matInput [(ngModel)]="data.quantity" required/>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="action-buttons">
+  <button class="cancel-button" mat-raised-button (click)="onCancel()" color="accent">Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="data" color="accent">Save</button>
+</div>

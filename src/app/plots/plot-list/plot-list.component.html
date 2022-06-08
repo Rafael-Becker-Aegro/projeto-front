@@ -1,4 +1,5 @@
 <mat-toolbar class="table-toolbar" color="accent">
+  <mat-icon class="icon-with-text" color="primary" aria-label="Plot icon">home</mat-icon>
   <span class="toolbar-text">{{ farm.name }}  |  production: {{ farm.productivity }}kg/ha</span>
   <button class="toolbar-button" mat-flat-button (click)="clickCreate()" color="primary" >
     Add Plot
@@ -28,7 +29,7 @@
           <button mat-icon-button color="primary" (click)="clickDelete(plot.id)" aria-label="Delete plot">
             <mat-icon>delete</mat-icon>
           </button>
-          <button mat-icon-button color="primary" [routerLink]="['/']" aria-label="Delete plot">
+          <button mat-icon-button color="primary" [routerLink]="['/production-list', plot]" aria-label="See plot">
             <mat-icon>chevron_right</mat-icon>
           </button>
         </div>
