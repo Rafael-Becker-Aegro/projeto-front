@@ -23,6 +23,9 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { PlotDialogComponent } from './plots/plot-dialog/plot-dialog.component';
 import { ProductionDialogComponent } from './production/production-dialog/production-dialog.component';
 import { ProductionListComponent } from './production/production-list/production-list.component';
+import { FarmDeleteDialogComponent } from './farms/farm-delete-dialog/farm-delete-dialog.component';
+import { PlotDeleteDialogComponent } from './plots/plot-delete-dialog/plot-delete-dialog.component';
+import { ProductionDeleteDialogComponent } from './production/production-delete-dialog/production-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { ProductionListComponent } from './production/production-list/production
     PlotDialogComponent,
     ProductionDialogComponent,
     ProductionListComponent,
+    FarmDeleteDialogComponent,
+    PlotDeleteDialogComponent,
+    ProductionDeleteDialogComponent,
   ],
   imports: [
     BrowserModule,

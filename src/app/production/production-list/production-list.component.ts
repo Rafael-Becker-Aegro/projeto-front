@@ -7,6 +7,7 @@ import { Plot } from 'src/app/models/plot';
 import { Production } from 'src/app/models/production';
 import { PlotsService } from 'src/app/services/plots.service';
 import { ProductionService } from 'src/app/services/production.service';
+import { ProductionDeleteDialogComponent } from '../production-delete-dialog/production-delete-dialog.component';
 
 import { ProductionDialogComponent } from '../production-dialog/production-dialog.component';
 
@@ -77,9 +78,18 @@ export class ProductionListComponent implements OnInit {
   }
 
   clickDelete(productionId: string) {
-    this.productionService.delete(this.plot, productionId).subscribe(() => {
-      this.getAll();
+    const dialogRef = this.dialog.open(ProductionDeleteDialogComponent, {
+      width: '250px',
     });
+
+    dialogRef.afterClosed().subscribe((deleteReturn: string) => {
+      if (deleteReturn != undefined) {
+        this.productionService.delete(this.plot, productionId).subscribe(() => {
+          this.getAll();
+        });
+      }
+    });
+
   }
 
   getAll() {

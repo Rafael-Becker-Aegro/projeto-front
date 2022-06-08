@@ -1,9 +1,30 @@
-.table-toolbar {
+.table-title {
+  height: 88px;
   position: relative;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 77, 78, 0.15);
+}
+
+.table-title-title{
+  position: absolute;
+  top: 12px;
 }
 
 .toolbar-text {
   margin-left: 2%;
+}
+
+.toolbar-detail-text {
+  position: absolute;
+  top: 36px;
+  left: 2.5rem;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.table-toolbar {
+  position: relative;
+  background-color: white;
 }
 
 .toolbar-button {
@@ -19,6 +40,7 @@
 
 table {
   width: 100%;
+  text-align: start;
 }
 
 .table-row {
@@ -44,15 +66,14 @@ tr.mat-row button:hover {
   transition: 0.2s;
   border-radius: 0;
 }
-
-tr.mat-row:hover {
-  background: rgba(0, 0, 0, 0.1);
-  transition: 0.2s;
-}
-
-.loading_spinner{
+.empty-table{
   background: rgba(0, 0, 0, 0.18);
   padding: 2rem;
   display: flex;
   justify-content: center;
+}
+
+tr.mat-row:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
 }

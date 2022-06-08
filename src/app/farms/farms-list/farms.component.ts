@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Farm } from 'src/app/models/farm';
 import { FarmsService } from 'src/app/services/farms.service';
 
+import { FarmDeleteDialogComponent } from '../farm-delete-dialog/farm-delete-dialog.component';
 import { FarmDialogComponent } from '../farm-dialog/farm-dialog.component';
 
 @Component({
@@ -53,8 +54,16 @@ export class FarmsComponent implements OnInit {
   }
 
   clickDelete(farmId: string) {
-    this.farmsService.delete(farmId).subscribe(() => {
-      this.getAll();
+    const dialogRef = this.dialog.open(FarmDeleteDialogComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe((deleteReturn: string) => {
+      if (deleteReturn != undefined) {
+        this.farmsService.delete(farmId).subscribe(() => {
+          this.getAll();
+        });
+      }
     });
   }
 

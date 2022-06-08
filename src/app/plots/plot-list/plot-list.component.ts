@@ -6,6 +6,7 @@ import { Farm } from 'src/app/models/farm';
 import { Plot } from 'src/app/models/plot';
 import { FarmsService } from 'src/app/services/farms.service';
 import { PlotsService } from 'src/app/services/plots.service';
+import { PlotDeleteDialogComponent } from '../plot-delete-dialog/plot-delete-dialog.component';
 
 import { PlotDialogComponent } from '../plot-dialog/plot-dialog.component';
 
@@ -73,9 +74,18 @@ export class PlotListComponent implements OnInit {
   }
 
   clickDelete(plotId: string) {
-    this.plotsService.delete(this.farm.id, plotId).subscribe(() => {
-      this.getAll();
+    const dialogRef = this.dialog.open(PlotDeleteDialogComponent, {
+      width: '250px',
     });
+
+    dialogRef.afterClosed().subscribe((deleteReturn: string) => {
+      if (deleteReturn != undefined) {
+        this.plotsService.delete(this.farm.id, plotId).subscribe(() => {
+          this.getAll();
+        });
+      }
+    });
+
   }
 
   getAll() {
