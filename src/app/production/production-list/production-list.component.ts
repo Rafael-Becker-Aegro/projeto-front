@@ -36,12 +36,7 @@ export class ProductionListComponent implements OnInit {
         farm: paramFarm['farm'],
         productivity: 0,
       };
-      this.plotsService
-        .getProductivity(this.plot.farm, this.plot.id)
-        .subscribe((plotProductivity) => {
-          this.plot.productivity = plotProductivity;
-          this.getAll();
-        });
+      this.refreshInfo(this.plot.farm, this.plot.id);
     });
   }
 
@@ -56,7 +51,7 @@ export class ProductionListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((production: Production) => {
       if (production != undefined) {
         this.productionService.create(this.plot, production).subscribe(() => {
-          this.getAll();
+          this.refreshInfo(this.plot.farm, this.plot.id);
         });
       }
     });
@@ -71,7 +66,7 @@ export class ProductionListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((production: Production) => {
       if (production != undefined) {
         this.productionService.update(this.plot, production).subscribe(() => {
-          this.getAll();
+          this.refreshInfo(this.plot.farm, this.plot.id);
         });
       }
     });
@@ -85,11 +80,20 @@ export class ProductionListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((deleteReturn: string) => {
       if (deleteReturn != undefined) {
         this.productionService.delete(this.plot, productionId).subscribe(() => {
-          this.getAll();
+          this.refreshInfo(this.plot.farm, this.plot.id);
         });
       }
     });
 
+  }
+
+  refreshInfo(farmId: string, plotId: string){
+    this.plotsService
+        .getProductivity(this.plot.farm, this.plot.id)
+        .subscribe((plotProductivity) => {
+          this.plot.productivity = plotProductivity;
+          this.getAll();
+        });
   }
 
   getAll() {
