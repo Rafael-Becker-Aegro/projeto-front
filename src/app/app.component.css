@@ -36,15 +36,19 @@
 }
 
 @media (max-width: 1000px) {
+  .lists-block{
+    height: 450px;
+  }
+
   .farm-list{
-    width: 95%;
+    width: 94%;
     margin: auto;
     border: 1px solid rgba(0, 77, 78, 0.15);
     border-radius: 5px;
   }
 
   .other-list{
-    width: 95%;
+    width: 94%;
     margin: auto;
     margin-top: 2%;
     border: 1px solid rgba(0, 77, 78, 0.15);
