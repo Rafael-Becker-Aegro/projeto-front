@@ -15,22 +15,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FarmDeleteDialogComponent } from './farms/farm-delete-dialog/farm-delete-dialog.component';
 import { FarmDialogComponent } from './farms/farm-dialog/farm-dialog.component';
 import { FarmsComponent } from './farms/farms-list/farms.component';
-import { PlotListComponent } from './plots/plot-list/plot-list.component';
-import { HttpErrorInterceptor } from './shared/interceptor/http-error.interceptor';
-import { ToolbarComponent } from './shared/toolbar/toolbar.component';
+import { PlotDeleteDialogComponent } from './plots/plot-delete-dialog/plot-delete-dialog.component';
 import { PlotDialogComponent } from './plots/plot-dialog/plot-dialog.component';
+import { PlotListComponent } from './plots/plot-list/plot-list.component';
+import { ProductionDeleteDialogComponent } from './production/production-delete-dialog/production-delete-dialog.component';
 import { ProductionDialogComponent } from './production/production-dialog/production-dialog.component';
 import { ProductionListComponent } from './production/production-list/production-list.component';
-import { FarmDeleteDialogComponent } from './farms/farm-delete-dialog/farm-delete-dialog.component';
-import { PlotDeleteDialogComponent } from './plots/plot-delete-dialog/plot-delete-dialog.component';
-import { ProductionDeleteDialogComponent } from './production/production-delete-dialog/production-delete-dialog.component';
+import { HttpErrorInterceptor } from './shared/interceptor/http-error.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent,
     FarmsComponent,
     FarmDialogComponent,
     PlotListComponent,
